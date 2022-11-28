@@ -1,11 +1,14 @@
 import CurrentConditionsDisplay from "./VisualElements/CurrentConditionsDisplay";
+import HeatIndexDisplay from "./VisualElements/HeatIndexDisplay";
 import WeatherData from "./WeatherData/WeatherData";
 
 export default class WeatherStation {
     constructor() {
         let weatherData: WeatherData = new WeatherData();
+
         let currentDisplay: CurrentConditionsDisplay = new CurrentConditionsDisplay(weatherData);
-    
+		let heatIndexDisplay: HeatIndexDisplay = new HeatIndexDisplay(weatherData);
+
 		let interval = setInterval(() => {
 			weatherData.setMeasurements(WeatherStation.getRandomNumber(), WeatherStation.getRandomNumber(), WeatherStation.getRandomNumber());
 		}, 1000);
